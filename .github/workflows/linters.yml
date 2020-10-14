@@ -1,0 +1,13 @@
+name: Run Linters
+
+on: pull_request
+
+jobs:
+  linters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Rubocop
+        uses: sfeuga/github-actions-rubocop@1.6.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
