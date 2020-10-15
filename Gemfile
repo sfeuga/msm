@@ -28,7 +28,11 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'reek'
   gem 'rubocop'
+  gem 'rubocop-i18n'
+  gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'rubocop-thread_safety'
 end
 
 group :development do

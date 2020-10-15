@@ -1,13 +1,20 @@
 name: Run Linters
 
-on: pull_request
+on: [pull_request]
 
 jobs:
   linters:
+    name: Rubocop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run Rubocop
-        uses: sfeuga/github-actions-rubocop@1.6.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+      - run: gem install rubocop rubocop-rails rubocop-rspec rubocop-performance rubocop-i18n rubocop-thread_safety --no-doc
+      - run: rubocop --format progress --format json --out rubocop.json
+        id: rubocop
+      - uses: duderman/rubocop-annotate-action@v0.1.0
+        with:
+          path: rubocop.json
+        if: ${{ failure() }}
