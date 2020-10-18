@@ -3,7 +3,7 @@ name: Run Linters
 on: [pull_request]
 
 jobs:
-  linters:
+  rubocop:
     name: Rubocop
     runs-on: ubuntu-latest
     steps:
