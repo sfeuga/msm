@@ -32,6 +32,7 @@ rake db:create
 rake db:migrate
 yarn
 yarn upgrade
+yarn add bootstrap jquery popper.js
 ```
 
 And run `webpack-dev-server` to test Yarn compilation (hit _CTRL-C_ to stop the server)
