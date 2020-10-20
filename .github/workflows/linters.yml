@@ -11,7 +11,7 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7'
-      - run: gem install rubocop rubocop-rails rubocop-rspec rubocop-performance rubocop-i18n rubocop-thread_safety --no-doc
+      - run: gem install rubocop rubocop-rails rubocop-performance rubocop-i18n rubocop-thread_safety --no-doc
       - run: rubocop --format progress --format json --out rubocop.json
         id: rubocop
       - uses: duderman/rubocop-annotate-action@v0.1.0

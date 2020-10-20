@@ -28,14 +28,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'reek'
-  gem 'rubocop'
-  gem 'rubocop-i18n'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
-  gem 'rubocop-thread_safety'
+  gem 'byebug', '~> 11.1', '>= 11.1.3', platforms: %i[mri mingw x64_mingw]
+  gem 'reek', '~> 6.0', '>= 6.0.2'
+  gem 'rubocop', '~> 0.93.1'
+  gem 'rubocop-i18n', '~> 2.0', '>= 2.0.2'
+  gem 'rubocop-performance', '~> 1.8', '>= 1.8.1'
+  gem 'rubocop-rails', '~> 2.8', '>= 2.8.1'
+  gem 'rubocop-thread_safety', '~> 0.4.1'
 end
 
 group :development do

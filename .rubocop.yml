@@ -2,7 +2,6 @@ require:
   - rubocop-i18n
   - rubocop-performance
   - rubocop-rails
-  - rubocop-rspec
   - rubocop-thread_safety
 
 RailsI18n:
