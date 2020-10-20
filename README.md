@@ -33,6 +33,7 @@ rake db:migrate
 yarn
 yarn upgrade
 yarn add bootstrap jquery popper.js
+rails generate simple_form:install --bootstrap
 ```
 
 And run `webpack-dev-server` to test Yarn compilation (hit _CTRL-C_ to stop the server)
