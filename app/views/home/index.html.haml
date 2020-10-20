@@ -1,25 +1,34 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a.navbar-brand{:href => "#"} Eclisse MSM
+  %a.navbar-brand{:href => "#"}
+    .fa.fa-home
+      Eclisse MSM
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
-      %li.nav-item.active
+      %li.nav-item
         %a.nav-link{:href => "#"}
-          Home
-          %span.sr-only (current)
-      %li.nav-item
-        %a.nav-link{:href => "https://www.eclisse-mi.com"} Website
-      %li.nav-item.dropdown
-        %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-          Dropdown
-        .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-          %a.dropdown-item{:href => "#"} Action
-          %a.dropdown-item{:href => "#"} Another action
-          .dropdown-divider
-          %a.dropdown-item{:href => "#"} Something else here
-      %li.nav-item
-        %a.nav-link.disabled{:href => "#"} Disabled
+          .fa.fa-calendar-alt
+            My Calendar
+      %li.btn-group
+        %button.btn.btn-secondary.btn-sm{:type => "button"}
+          .fa.fa-user-circle
+            My Students
+        %button.btn.btn-sm.btn-secondary.dropdown-toggle.dropdown-toggle-split{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+          %span.sr-only Toggle Dropdown
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            %a.dropdown-item{:href => "#"}
+              .fa.fa-plus-circle
+                Add new...
+            .dropdown-divider
+            %a.dropdown-item{:href => "#"}
+              .fa.fa-times-circle
+                Close student account
+            %a.dropdown-item{:href => "#"}
+              .fa.fa-skull-crossbones
+                Delete student account
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
-      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+      %button.btn.btn-outline-success.my-2.my-sm-0.fa.fa-search{:type => "submit"}
+        Search
+
