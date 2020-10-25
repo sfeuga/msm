@@ -11,7 +11,12 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.7'
-      - run: gem install rubocop rubocop-rails rubocop-performance rubocop-i18n rubocop-thread_safety --no-doc
+      - run: |
+          gem install --no-doc rubocop -v '~> 0.93.1'
+          gem install --no-doc rubocop-rails -v '~> 2.8.1'
+          gem install --no-doc rubocop-performance -v '~> 1.8.1'
+          gem install --no-doc rubocop-i18n -v '~> 2.0.2'
+          gem install --no-doc rubocop-thread_safety -v '~> 0.4.1'
       - run: rubocop --format progress --format json --out rubocop.json
         id: rubocop
       - uses: duderman/rubocop-annotate-action@v0.1.0
