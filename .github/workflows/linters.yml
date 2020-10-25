@@ -23,3 +23,20 @@ jobs:
         with:
           path: rubocop.json
         if: ${{ failure() }}
+  haml:
+    name: HAML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+      - run: |
+          rm .rubocop.yml
+          gem install --no-doc haml_lint -v '~> 0.36.0'
+      - run: haml-lint app/**/*.html.haml --exclude-linter RuboCop --reporter progress --reporter json >> haml.json
+        id: haml
+      - uses: duderman/rubocop-annotate-action@v0.1.0
+        with:
+          path: haml.json
+        if: ${{ failure() }}
