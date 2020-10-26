@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
 
 if [ "$DISABLE_RAILS_DB_MIGRATIONS" = "true" ]; then
-  echo "SKIPPING DATABASE MIGRATIONS"
+  echo "###########################################"
+  echo "#      SKIPPING DATABASE MIGRATIONS       #"
+  echo "###########################################"
 else
-  echo "db:migrate..."
+  echo "###########################################"
+  echo "#              DB Migrations              #"
+  echo "#                                         #"
+  echo "# run rake db:migrate                     #"
   bundle exec rake db:migrate
+  echo "###########################################"
+fi
+
+if [ "$DB_SEED" = "true" ]; then
+  echo "###########################################"
+  echo "#                 DB Seed                 #"
+  echo "#                                         #"
+  echo "# run rake db:clean_all db:seed           #"
+  bundle exec rake db:clean_all db:seed db:count
+  echo "###########################################"
 fi
