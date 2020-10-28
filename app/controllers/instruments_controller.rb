@@ -73,7 +73,7 @@ class InstrumentsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_instrument
-    @instrument = Instrument.find(params[:id])
+    @instrument = Instrument.friendly.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
