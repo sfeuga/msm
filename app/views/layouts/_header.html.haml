@@ -20,8 +20,16 @@
               Instruments
             .fa.fa-drum.text-info
       %form.form-inline.mx-2.my-lg-0
-        %input.form-control.mr-sm-2.search-field{ 'aria-label' => 'Search', placeholder: 'Search', type: 'search' }
-        %button.btn.btn-outline-secondary.mr-sm-2.fa.fa-search.search-field{ type: 'submit' }
+        = form_tag(root_path, method: :get) do
+          .input-group
+            = text_field_tag :title,
+              params[:title],
+              autocomplete: 'off',
+              placeholder: 'Search',
+              class: 'form-control'
+            %span.input-group-append
+              %button.btn.btn-outline-secondary.btn-sm{ type: 'submit' }
+                %span.fa.fa-search{ 'aria-hidden' => 'true' }
       .dropdown.mx-2
         %a.fa.fa-user-circle.text-success.my-account#dropdown-menu-button{ 'aria-expanded' => 'false',
                                                                            'aria-haspopup' => 'true',

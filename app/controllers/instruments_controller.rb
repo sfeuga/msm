@@ -9,7 +9,12 @@ class InstrumentsController < ApplicationController
   # GET /instruments
   # GET /instruments.json
   def index
-    @instruments = Instrument.all
+    @instruments = if params[:title]
+                     # case-insensitive search
+                     Instrument.where('title ILIKE ?', "%#{params[:title]}%")
+                   else
+                     Instrument.all
+                   end
   end
 
   # GET /instruments/1
