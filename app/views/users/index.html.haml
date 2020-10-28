@@ -1,0 +1,32 @@
+%h1
+  Instruments:
+  = @instruments.count
+
+%table.table
+  %thead
+    %tr
+      %th Instrument
+      %th Description
+      %th.row-size
+      %th.row-size
+      %th.row-size
+
+  %tbody
+    - @instruments.each do |instrument|
+      %tr
+        %td= instrument.title
+        %td= instrument.description
+        %td= link_to '<span class="fa fa-eye"> Show'.html_safe,
+              instrument,
+              :class => 'btn btn-success'
+        %td= link_to '<span class="fa fa-edit"> Edit'.html_safe,
+              edit_instrument_path(instrument),
+              :class => 'btn btn-warning'
+        %td= link_to '<span class="fa fa-trash-alt"> Delete'.html_safe,
+              instrument,
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              :class => 'btn btn-danger'
+
+= link_to '<span class="fa fa-plus-circle"> Add new instrument...'.html_safe,
+  new_instrument_path
