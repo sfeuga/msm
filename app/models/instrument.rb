@@ -4,6 +4,9 @@
 # Instrument Class
 #
 class Instrument < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   validates :title, presence: true
 
   def to_s
