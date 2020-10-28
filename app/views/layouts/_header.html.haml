@@ -13,12 +13,16 @@
     .collapse.navbar-collapse#navbar-supported-content
       %ul.nav.nav-tabs.mr-auto.border-bottom-0
         %li.nav-item
-          %a.nav-link.border-bottom-0.border.border-info{ href: instruments_path,
-            class: "#{'instruments active font-weight-bold' if current_page?(instruments_path)}" }
-            .fa.fa-guitar.text-info
-            %span.text-info
-              Instruments
-            .fa.fa-drum.text-info
+          %a.nav-link.border-bottom-0.border.border-warning.text-dark{ href: users_path,
+            class: "#{'active font-weight-bold bg-warning txt-white' if current_page?(users_path)}" }
+            .fa.fa-users
+            Users
+        %li.nav-item
+          %a.nav-link.border-bottom-0.border.border-info.text-dark{ href: instruments_path,
+            class: "#{'active font-weight-bold bg-info txt-white' if current_page?(instruments_path)}" }
+            .fa.fa-guitar
+            Instruments
+            .fa.fa-drum
       %form.form-inline.mx-2.my-lg-0
         = form_tag(root_path, method: :get) do
           .input-group

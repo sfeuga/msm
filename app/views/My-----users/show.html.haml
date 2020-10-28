@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b email:
+  = @user.email
+%p
+  %b Creation date:
+  = @user.created_at
+
+= link_to t('Edit'), edit_user_registration_path(@user)
+\|
+= link_to t('Back'), users_path

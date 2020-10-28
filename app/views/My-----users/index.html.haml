@@ -1,0 +1,40 @@
+%h1
+  Users:
+  = @users.count
+
+= link_to new_user_registration_path do
+  .fa.fa-user-plus.text-dark
+  %span.text-dark
+    Add new user...
+
+%table.table
+  %thead
+    %tr
+      %th Email
+      %th.row-size Type
+      %th Created
+      %th.row-size
+      %th.row-size
+      %th.row-size
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.email
+        %td
+        %td= "#{time_ago_in_words(user.created_at)}" + ' ' + 'ago'
+        %td
+          = link_to user do
+            .btn.btn-success
+              .fa.fa-eye
+              Show
+        %td
+          = link_to edit_user_registration_path(user) do
+            .btn.btn-warning
+              .fa.fa-edit
+              Edit
+        %td
+          = link_to user, method: :delete, data: { confirm: 'Are you sure?' }  do
+            .btn.btn-danger
+              .fa.fa-trash-alt
+              Delete
